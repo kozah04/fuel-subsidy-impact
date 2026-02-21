@@ -74,7 +74,9 @@ def load_exchange_rate_monthly(filepath: str) -> pd.DataFrame:
 
     df["usd_ngn"] = pd.to_numeric(df["usd_ngn"], errors="coerce")
 
-    df = df[["date", "usd_ngn"]].dropna().sort_values("date").reset_index(drop=True)
+    df = df[["date", "usd_ngn"]].dropna()
+    df = df[df["usd_ngn"] > 0]  # remove zero/negative rates (data entry errors)
+    df = df.sort_values("date").reset_index(drop=True)
 
     return df
 
