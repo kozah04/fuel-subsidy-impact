@@ -1,0 +1,15 @@
+# Data (never push raw data)
+data/raw/
+data/processed/
+
+# Environment
+.env
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Outputs
+outputs/
+
+# Conda
+*.egg-info/
